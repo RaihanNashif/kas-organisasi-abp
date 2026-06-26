@@ -20,8 +20,25 @@ class User extends Model
     ];
 
     public $timestamps = false;
+
     public function pemasukan()
     {
-    return $this->hasMany(Pemasukan::class, 'id_users', 'id_users');
+        return $this->hasMany(Pemasukan::class, 'id_users', 'id_users');
+    }
+
+    public function pengeluaran()
+    {
+        return $this->hasMany(Pengeluaran::class, 'id_users', 'id_users');
+    }
+
+    public function statusPembayaran()
+    {
+        return $this->hasMany(StatusPembayaran::class, 'id_users', 'id_users');
+    }
+
+    public function laporan()
+    {
+        return $this->hasMany(Laporan::class, 'id_users', 'id_users');
     }
 }
+
