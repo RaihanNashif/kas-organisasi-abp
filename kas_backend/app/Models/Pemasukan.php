@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 
 class Pemasukan extends Model
@@ -25,4 +26,9 @@ class Pemasukan extends Model
 
     // kalau tidak ada created_at & updated_at di tabel
     public $timestamps = false;
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'id_users', 'id_users');
+    }
 }

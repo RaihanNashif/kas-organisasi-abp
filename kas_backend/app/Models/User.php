@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Pemasukan;
 use Illuminate\Database\Eloquent\Model;
 
 class User extends Model
@@ -19,4 +20,8 @@ class User extends Model
     ];
 
     public $timestamps = false;
+    public function pemasukan()
+    {
+    return $this->hasMany(Pemasukan::class, 'id_users', 'id_users');
+    }
 }

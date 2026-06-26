@@ -35,24 +35,36 @@ class KasController extends Controller
     // POST pemasukan
     public function storePemasukan(Request $request)
     {
-        $data = Pemasukan::create($request->all());
-        return response()->json($data);
-
         $request->validate([
             'tanggal' => 'required|date',
-            'jumlah' => 'required|numeric'
+            'sumber' => 'required',
+            'jumlah' => 'required|numeric',
+            'input_by' => 'required'
+        ]);
+
+        $data = Pemasukan::create($request->all());
+
+        return response()->json([
+            'status' => 'success',
+            'data' => $data
         ]);
     }
 
     // POST pengeluaran
-    public function storePengeluaran(Request $request)
+public function storePengeluaran(Request $request)
     {
-        $data = Pengeluaran::create($request->all());
-        return response()->json($data);
-
         $request->validate([
             'tanggal' => 'required|date',
-            'jumlah' => 'required|numeric'
+            'keperluan' => 'required',
+            'jumlah' => 'required|numeric',
+            'input_by' => 'required'
+        ]);
+
+        $data = Pengeluaran::create($request->all());
+
+        return response()->json([
+            'status' => 'success',
+            'data' => $data
         ]);
     }
 
@@ -105,5 +117,19 @@ class KasController extends Controller
     public function getLaporan()
     {
         return response()->json(Laporan::all());
+    }
+
+    public function getPemasukan()
+    {
+        return response()->json(
+            Pemasukan::with('user')->get()
+        );
+    }
+
+    public function getPengeluaran()
+    {
+        return response()->json(
+            Pengeluaran::with('user')->get()
+        );
     }
 }

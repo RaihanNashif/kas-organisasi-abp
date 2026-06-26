@@ -12,12 +12,6 @@ Route::post('/pengeluaran', [KasController::class, 'storePengeluaran']);
 Route::get('/saldo', [KasController::class, 'saldo']);
 Route::post('/generate-laporan', [KasController::class, 'generateLaporan']);
 Route::get('/laporan', [KasController::class, 'getLaporan']);
-Route::get('/pemasukan', function () {
-    return \App\Models\Pemasukan::all();
-});
-
-Route::get('/pengeluaran', function () {
-    return \App\Models\Pengeluaran::all();
-});
-
+Route::get('/pemasukan', [KasController::class, 'getPemasukan']);
+Route::get('/pengeluaran', [KasController::class, 'getPengeluaran']);
 
