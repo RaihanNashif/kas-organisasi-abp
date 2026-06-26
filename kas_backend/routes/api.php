@@ -14,4 +14,5 @@ Route::post('/generate-laporan', [KasController::class, 'generateLaporan']);
 Route::get('/laporan', [KasController::class, 'getLaporan']);
 Route::get('/pemasukan', [KasController::class, 'getPemasukan']);
 Route::get('/pengeluaran', [KasController::class, 'getPengeluaran']);
-
+Route::put('/pemasukan/{id}', [KasController::class, 'updatePemasukan']);
+Route::delete('/pemasukan/{id}', [KasController::class, 'deletePemasukan']);

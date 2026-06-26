@@ -37,9 +37,11 @@ class KasController extends Controller
     {
         $request->validate([
             'tanggal' => 'required|date',
-            'sumber' => 'required',
-            'jumlah' => 'required|numeric',
-            'input_by' => 'required'
+            'sumber' => 'required|string|max:100',
+            'jumlah' => 'required|numeric|min:0',
+            'keterangan' => 'nullable|string|max:255',
+            'id_users' => 'nullable|exists:users,id_users',
+            'input_by' => 'required|exists:users,id_users'
         ]);
 
         $data = Pemasukan::create($request->all());
@@ -131,5 +133,53 @@ public function storePengeluaran(Request $request)
         return response()->json(
             Pengeluaran::with('user')->get()
         );
+    }
+
+    public function updatePemasukan(Request $request, $id)
+    {
+        $request->validate([
+            'tanggal' => 'required|date',
+            'sumber' => 'required|string|max:100',
+            'jumlah' => 'required|numeric|min:0',
+            'keterangan' => 'nullable|string|max:255',
+            'id_users' => 'nullable|exists:users,id_users',
+            'input_by' => 'required|exists:users,id_users'
+        ]);
+
+        $pemasukan = Pemasukan::find($id);
+
+        if (!$pemasukan) {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'Data pemasukan tidak ditemukan'
+            ], 404);
+        }
+
+        $pemasukan->update($request->all());
+
+        return response()->json([
+            'status' => 'success',
+            'message' => 'Data pemasukan berhasil diubah',
+            'data' => $pemasukan
+        ]);
+    }
+
+    public function deletePemasukan($id)
+    {
+        $pemasukan = Pemasukan::find($id);
+
+        if (!$pemasukan) {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'Data pemasukan tidak ditemukan'
+            ], 404);
+        }
+
+        $pemasukan->delete();
+
+        return response()->json([
+            'status' => 'success',
+            'message' => 'Data pemasukan berhasil dihapus'
+        ]);
     }
 }
