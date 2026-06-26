@@ -29,6 +29,10 @@ class Sidebar extends StatelessWidget {
         "title": "Laporan",
         "icon": Icons.description,
       },
+      {
+        "title": "Data Anggota",
+        "icon": Icons.people,
+      },
     ];
 
     return Container(
