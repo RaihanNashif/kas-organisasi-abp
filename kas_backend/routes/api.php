@@ -16,3 +16,7 @@ Route::get('/pemasukan', [KasController::class, 'getPemasukan']);
 Route::get('/pengeluaran', [KasController::class, 'getPengeluaran']);
 Route::put('/pemasukan/{id}', [KasController::class, 'updatePemasukan']);
 Route::delete('/pemasukan/{id}', [KasController::class, 'deletePemasukan']);
+Route::put('/pengeluaran/{id}', [KasController::class, 'updatePengeluaran']);
+Route::delete('/pengeluaran/{id}', [KasController::class, 'deletePengeluaran']);
+Route::get('/users', [AuthController::class, 'getUsers']);
+Route::get('/ai-analisis', [KasController::class, 'aiAnalisis']);

@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Models\User;
 
 class Pengeluaran extends Model
 {
@@ -23,4 +24,14 @@ class Pengeluaran extends Model
     ];
 
     public $timestamps = false;
+
+    // Relasi ke tabel users
+    public function user()
+    {
+        return $this->belongsTo(
+            User::class,
+            'id_users',
+            'id_users'
+        );
+    }
 }

@@ -16,8 +16,8 @@ class AuthController extends Controller
         ]);
 
         $user = User::where('username', $request->username)
-                    ->where('password', $request->password)
-                    ->first();
+            ->where('password', $request->password)
+            ->first();
 
         if (!$user) {
             return response()->json([
@@ -36,5 +36,14 @@ class AuthController extends Controller
                 'role' => $user->role
             ]
         ]);
+    }
+    public function getUsers()
+    {
+        return response()->json(
+            User::select('id_users', 'nama')
+                ->where('role', 'anggota')
+                ->orderBy('nama')
+                ->get()
+        );
     }
 }
