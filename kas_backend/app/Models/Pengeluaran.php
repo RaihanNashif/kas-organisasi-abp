@@ -25,7 +25,7 @@ class Pengeluaran extends Model
 
     public $timestamps = false;
 
-    // Relasi ke tabel users
+
     public function user()
     {
         return $this->belongsTo(

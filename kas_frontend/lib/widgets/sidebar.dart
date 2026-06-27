@@ -33,6 +33,10 @@ class Sidebar extends StatelessWidget {
         "title": "AI Analisis",
         "icon": Icons.smart_toy,
       },
+      {
+        "title": "Data Anggota",
+        "icon": Icons.people,
+      },
     ];
 
     return Container(

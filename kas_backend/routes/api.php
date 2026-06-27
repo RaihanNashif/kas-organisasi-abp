@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\KasController;
 use App\Http\Controllers\Api\AuthController;
+use App\Http\Controllers\Api\UserController;
 
 Route::post('/login', [AuthController::class, 'login']);
 Route::get('/kas', [KasController::class, 'index']);
@@ -20,3 +21,12 @@ Route::put('/pengeluaran/{id}', [KasController::class, 'updatePengeluaran']);
 Route::delete('/pengeluaran/{id}', [KasController::class, 'deletePengeluaran']);
 Route::get('/users', [AuthController::class, 'getUsers']);
 Route::get('/ai-analisis', [KasController::class, 'aiAnalisis']);
+
+// Route Manajemen User
+Route::get('/users', [UserController::class, 'index']);
+Route::get('/users/{id}', [UserController::class, 'show']);
+Route::post('/users', [UserController::class, 'store']);
+Route::put('/users/{id}', [UserController::class, 'update']);
+Route::delete('/users/{id}', [UserController::class, 'destroy']);
+
+
