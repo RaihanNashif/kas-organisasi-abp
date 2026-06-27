@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../../services/pemasukan_service.dart';
 import '../../services/user_service.dart';
 import 'package:intl/intl.dart';
+import '../../widgets/page_header.dart';
 
 class PemasukanContent extends StatefulWidget {
   const PemasukanContent({super.key});
@@ -122,38 +123,15 @@ class _PemasukanContentState
 
         children: [
 
-          Row(
-
-            mainAxisAlignment:
-                MainAxisAlignment.spaceBetween,
-
-            children: [
-
-              const Text(
-                "Data Pemasukan",
-
-                style: TextStyle(
-                  fontSize: 30,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-
-              ElevatedButton.icon(
-
-                onPressed: () {
-                  showTambahDialog();
-                },
-
-                icon: const Icon(Icons.add),
-
-                label: const Text(
-                  "Tambah",
-                ),
-
-              )
-
-            ],
-
+          PageHeader(
+            title: "Data Pemasukan",
+            action: ElevatedButton.icon(
+              onPressed: () {
+                showTambahDialog();
+              },
+              icon: const Icon(Icons.add),
+              label: const Text("Tambah"),
+            ),
           ),
 
           const SizedBox(height: 20),

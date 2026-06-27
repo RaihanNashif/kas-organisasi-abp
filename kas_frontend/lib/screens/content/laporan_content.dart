@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../../services/laporan_service.dart';
 import '../../services/pdf_service.dart';
 import 'package:intl/intl.dart';
+import '../../widgets/page_header.dart';
 
 class LaporanContent extends StatefulWidget {
   const LaporanContent({super.key});
@@ -68,12 +69,8 @@ class _LaporanContentState
 
         children: [
 
-          const Text(
-            "Laporan Kas",
-            style: TextStyle(
-              fontSize: 30,
-              fontWeight: FontWeight.bold,
-            ),
+          const PageHeader(
+            title: "Laporan Kas",
           ),
 
           const SizedBox(height: 20),

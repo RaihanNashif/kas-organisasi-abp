@@ -155,9 +155,9 @@ class _AIContentState extends State<AIContent> {
                                 title: const Text("Total Pemasukan"),
                                 trailing: Text(
                                     rupiah.format(
-                                    double.parse(
-                                        data!["total_pemasukan"].toString(),
-                                    ),
+                                        double.parse(
+                                            data!["total_pemasukan"].toString(),
+                                        ),
                                     ),
                                 ),
                             ),
@@ -167,9 +167,9 @@ class _AIContentState extends State<AIContent> {
                                 title: const Text("Total Pengeluaran"),
                                 trailing: Text(
                                     rupiah.format(
-                                    double.parse(
-                                        data!["total_pengeluaran"].toString(),
-                                    ),
+                                        double.parse(
+                                            data!["total_pengeluaran"].toString(),
+                                        ),
                                     ),
                                 ),
                             ),
@@ -179,9 +179,9 @@ class _AIContentState extends State<AIContent> {
                                 title: const Text("Saldo"),
                                 trailing: Text(
                                     rupiah.format(
-                                    double.parse(
-                                        data!["saldo"].toString(),
-                                    ),
+                                        double.parse(
+                                            data!["saldo"].toString(),
+                                        ),
                                     ),
                                 ),
                             ),

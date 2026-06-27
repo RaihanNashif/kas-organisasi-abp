@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import '../../services/pengeluaran_service.dart';
 import '../../services/user_service.dart';
 import 'package:intl/intl.dart';
+import '../../widgets/page_header.dart';
+import '../../widgets/action_buttons.dart';
 
 class PengeluaranContent extends StatefulWidget {
   const PengeluaranContent({super.key});
@@ -91,27 +93,15 @@ class _PengeluaranContentState
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
 
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-
-              const Text(
-                "Data Pengeluaran",
-                style: TextStyle(
-                  fontSize: 30,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-
-              ElevatedButton.icon(
-                onPressed: () {
-                  showTambahDialog();
-                },
-                icon: const Icon(Icons.add),
-                label: const Text("Tambah"),
-              ),
-
-            ],
+          PageHeader(
+            title: "Data Pengeluaran",
+            action: ElevatedButton.icon(
+              onPressed: () {
+                showTambahDialog();
+              },
+              icon: const Icon(Icons.add),
+              label: const Text("Tambah"),
+            ),
           ),
 
           const SizedBox(height: 20),

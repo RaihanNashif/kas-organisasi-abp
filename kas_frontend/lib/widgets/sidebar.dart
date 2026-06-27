@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../screens/login_screen.dart';
 
 class Sidebar extends StatelessWidget {
   final int selectedIndex;
@@ -99,7 +100,47 @@ class Sidebar extends StatelessWidget {
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.red,
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  showDialog(
+                    context: context,
+                    builder: (_) {
+                      return AlertDialog(
+                        title: const Text("Logout"),
+                        content: const Text(
+                          "Apakah Anda yakin ingin logout?",
+                        ),
+                        actions: [
+
+                          TextButton(
+                            onPressed: () {
+                              Navigator.pop(context);
+                            },
+                            child: const Text("Batal"),
+                          ),
+
+                          ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors.red,
+                            ),
+                            onPressed: () {
+
+                              Navigator.pushAndRemoveUntil(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (_) => const LoginScreen(),
+                                ),
+                                (route) => false,
+                              );
+
+                            },
+                            child: const Text("Logout"),
+                          ),
+
+                        ],
+                      );
+                    },
+                  );
+                },
                 icon: const Icon(Icons.logout),
                 label: const Text("Logout"),
               ),
