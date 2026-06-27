@@ -4,6 +4,7 @@ import 'content/dashboard_content.dart';
 import 'content/pemasukan_content.dart';
 import 'content/pengeluaran_content.dart';
 import 'content/laporan_content.dart';
+import 'content/ai_content.dart';
 
 class DashboardScreen extends StatefulWidget {
   const DashboardScreen({super.key});
@@ -30,6 +31,9 @@ class _DashboardScreenState
 
       case 3:
         return const LaporanContent();
+
+      case 4:
+        return const AIContent();
 
       default:
         return const DashboardContent();
